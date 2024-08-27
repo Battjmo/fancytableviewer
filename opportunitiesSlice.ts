@@ -4,7 +4,7 @@ import { RootState } from "./store";
 import { fetchOpportunitiesFromSalesforce } from "./split";
 import { writeBatch } from "firebase/firestore";
 
-interface Opportunity {
+export interface Opportunity {
   id: string;
   name: string;
   description?: string;

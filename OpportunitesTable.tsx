@@ -5,13 +5,15 @@ import {
   editOpportunity,
   revertOpportunity,
   submitOpportunity,
+  updateOpportunityInSalesforce,
+  Opportunity,
 } from "./opportunitiesSlice";
 import { RootState } from "./store";
 
 const OpportunitiesTable: React.FC = () => {
   const dispatch = useAppDispatch();
   const opportunities = useAppSelector(
-    (state: RootState) => state.opportunities.opportunities,
+    (state: RootState) => state.opportunities.opportunities
   );
 
   const [editingCell, setEditingCell] = useState<{
@@ -23,7 +25,7 @@ const OpportunitiesTable: React.FC = () => {
   const handleCellClick = (
     id: string,
     field: string,
-    currentValue: string | number,
+    currentValue: string | number
   ) => {
     setEditingCell({ id, field });
     setTempValue(currentValue);
@@ -40,7 +42,7 @@ const OpportunitiesTable: React.FC = () => {
           id: editingCell.id,
           field: editingCell.field,
           value: tempValue,
-        }),
+        })
       );
       setEditingCell(null);
     }
@@ -103,7 +105,9 @@ const OpportunitiesTable: React.FC = () => {
                           handleCellClick(
                             opportunity.id,
                             field,
-                            opportunity[field as keyof Opportunity],
+                            opportunity[
+                              field as keyof Opportunity
+                            ]?.toString() || ""
                           )
                         }
                       >
@@ -111,7 +115,7 @@ const OpportunitiesTable: React.FC = () => {
                       </span>
                     )}
                   </td>
-                ),
+                )
               )}
               <td>
                 {opportunity.isEdited && (
