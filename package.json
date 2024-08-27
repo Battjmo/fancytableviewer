@@ -1,0 +1,20 @@
+{
+  "name": "fancytableviewer",
+  "version": "1.0.0",
+  "description": "some notes for the test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "fancytableviewer"
+  },
+  "author": "nick battjes",
+  "license": "ISC",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.7",
+    "firebase": "^10.13.0",
+    "react-redux": "^9.1.2"
+  }
+}
